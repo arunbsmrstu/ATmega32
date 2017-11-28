@@ -1,0 +1,58 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 87B3      		in r24,55-32
+  25 0002 8F67      		ori r24,lo8(127)
+  26 0004 87BB      		out 55-32,r24
+  27               	.LM3:
+  28 0006 D098      		cbi 58-32,0
+  29               	.L5:
+  30               	.LBB2:
+  31               	.LM4:
+  32 0008 C89B      		sbis 57-32,0
+  33 000a 00C0      		rjmp .L2
+  34               	.LM5:
+  35 000c 88B3      		in r24,56-32
+  36 000e 8565      		ori r24,lo8(85)
+  37 0010 88BB      		out 56-32,r24
+  38               	.LM6:
+  39 0012 88B3      		in r24,56-32
+  40 0014 8575      		andi r24,lo8(85)
+  41 0016 00C0      		rjmp .L6
+  42               	.L2:
+  43               	.LM7:
+  44 0018 88B3      		in r24,56-32
+  45 001a 8B62      		ori r24,lo8(43)
+  46 001c 88BB      		out 56-32,r24
+  47               	.LM8:
+  48 001e 88B3      		in r24,56-32
+  49 0020 8B72      		andi r24,lo8(43)
+  50               	.L6:
+  51 0022 88BB      		out 56-32,r24
+  52 0024 00C0      		rjmp .L5
+  53               	.LBE2:
+  54               	.LFE6:
+  80               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\AB47\AppData\Local\Temp/ccPO5h6f.s:2      *ABS*:0000003f __SREG__
+C:\Users\AB47\AppData\Local\Temp/ccPO5h6f.s:3      *ABS*:0000003e __SP_H__
+C:\Users\AB47\AppData\Local\Temp/ccPO5h6f.s:4      *ABS*:0000003d __SP_L__
+C:\Users\AB47\AppData\Local\Temp/ccPO5h6f.s:5      *ABS*:00000034 __CCP__
+C:\Users\AB47\AppData\Local\Temp/ccPO5h6f.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\AB47\AppData\Local\Temp/ccPO5h6f.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\AB47\AppData\Local\Temp/ccPO5h6f.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

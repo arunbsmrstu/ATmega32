@@ -1,0 +1,1 @@
+myFile.o: myFile.c
