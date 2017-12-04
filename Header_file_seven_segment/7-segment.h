@@ -1,0 +1,1 @@
+void display(unsigned char seg , unsigned char data,int delay);

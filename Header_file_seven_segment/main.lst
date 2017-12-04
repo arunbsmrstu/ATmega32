@@ -1,0 +1,134 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21 0000 EF92      		push r14
+  22 0002 FF92      		push r15
+  23 0004 0F93      		push r16
+  24 0006 1F93      		push r17
+  25 0008 DF93      		push r29
+  26 000a CF93      		push r28
+  27 000c CDB7      		in r28,__SP_L__
+  28 000e DEB7      		in r29,__SP_H__
+  29 0010 6497      		sbiw r28,20
+  30 0012 0FB6      		in __tmp_reg__,__SREG__
+  31 0014 F894      		cli
+  32 0016 DEBF      		out __SP_H__,r29
+  33 0018 0FBE      		out __SREG__,__tmp_reg__
+  34 001a CDBF      		out __SP_L__,r28
+  35               	/* prologue: function */
+  36               	/* frame size = 20 */
+  37               	.LM2:
+  38 001c 8FEF      		ldi r24,lo8(-1)
+  39 001e 8ABB      		out 58-32,r24
+  40               	.LM3:
+  41 0020 87BB      		out 55-32,r24
+  42               	.LBB2:
+  43               	.LM4:
+  44 0022 7E01      		movw r14,r28
+  45 0024 0894      		sec
+  46 0026 E11C      		adc r14,__zero_reg__
+  47 0028 F11C      		adc r15,__zero_reg__
+  48               	.LVL0:
+  49               	.L4:
+  50 002a D701      		movw r26,r14
+  51 002c E0E0      		ldi r30,lo8(C.0.1257)
+  52 002e F0E0      		ldi r31,hi8(C.0.1257)
+  53 0030 84E1      		ldi r24,lo8(20)
+  54               	.L2:
+  55 0032 0190      		ld r0,Z+
+  56 0034 0D92      		st X+,r0
+  57 0036 8150      		subi r24,lo8(-(-1))
+  58 0038 01F4      		brne .L2
+  59 003a 00E0      		ldi r16,lo8(0)
+  60 003c 10E0      		ldi r17,hi8(0)
+  61               	.L3:
+  62               	.LBB3:
+  63               	.LM5:
+  64 003e 84E0      		ldi r24,lo8(4)
+  65 0040 6BE5      		ldi r22,lo8(91)
+  66 0042 4EE1      		ldi r20,lo8(30)
+  67 0044 50E0      		ldi r21,hi8(30)
+  68 0046 0E94 0000 		call display
+  69               	.LM6:
+  70 004a 83E0      		ldi r24,lo8(3)
+  71 004c 6FE3      		ldi r22,lo8(63)
+  72 004e 4EE1      		ldi r20,lo8(30)
+  73 0050 50E0      		ldi r21,hi8(30)
+  74 0052 0E94 0000 		call display
+  75               	.LM7:
+  76 0056 C801      		movw r24,r16
+  77 0058 6AE0      		ldi r22,lo8(10)
+  78 005a 70E0      		ldi r23,hi8(10)
+  79 005c 0E94 0000 		call __divmodhi4
+  80 0060 FB01      		movw r30,r22
+  81 0062 EE0F      		lsl r30
+  82 0064 FF1F      		rol r31
+  83 0066 EE0D      		add r30,r14
+  84 0068 FF1D      		adc r31,r15
+  85 006a 82E0      		ldi r24,lo8(2)
+  86 006c 6081      		ld r22,Z
+  87 006e 4EE1      		ldi r20,lo8(30)
+  88 0070 50E0      		ldi r21,hi8(30)
+  89 0072 0E94 0000 		call display
+  90               	.LM8:
+  91 0076 C801      		movw r24,r16
+  92 0078 6AE0      		ldi r22,lo8(10)
+  93 007a 70E0      		ldi r23,hi8(10)
+  94 007c 0E94 0000 		call __divmodhi4
+  95 0080 FC01      		movw r30,r24
+  96 0082 EE0F      		lsl r30
+  97 0084 FF1F      		rol r31
+  98 0086 EE0D      		add r30,r14
+  99 0088 FF1D      		adc r31,r15
+ 100 008a 81E0      		ldi r24,lo8(1)
+ 101 008c 6081      		ld r22,Z
+ 102 008e 4EE1      		ldi r20,lo8(30)
+ 103 0090 50E0      		ldi r21,hi8(30)
+ 104 0092 0E94 0000 		call display
+ 105               	.LM9:
+ 106 0096 0F5F      		subi r16,lo8(-(1))
+ 107 0098 1F4F      		sbci r17,hi8(-(1))
+ 108 009a 0D32      		cpi r16,45
+ 109 009c 1105      		cpc r17,__zero_reg__
+ 110 009e 01F4      		brne .L3
+ 111 00a0 00C0      		rjmp .L4
+ 112               	.LBE3:
+ 113               	.LBE2:
+ 114               	.LFE6:
+ 116               		.data
+ 119               	C.0.1257:
+ 120 0000 3F00      		.word	63
+ 121 0002 0600      		.word	6
+ 122 0004 5B00      		.word	91
+ 123 0006 4F00      		.word	79
+ 124 0008 6600      		.word	102
+ 125 000a 6D00      		.word	109
+ 126 000c 7C00      		.word	124
+ 127 000e 0700      		.word	7
+ 128 0010 7F00      		.word	127
+ 129 0012 6F00      		.word	111
+ 154               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\AB47\AppData\Local\Temp/cc1CBO7w.s:2      *ABS*:0000003f __SREG__
+C:\Users\AB47\AppData\Local\Temp/cc1CBO7w.s:3      *ABS*:0000003e __SP_H__
+C:\Users\AB47\AppData\Local\Temp/cc1CBO7w.s:4      *ABS*:0000003d __SP_L__
+C:\Users\AB47\AppData\Local\Temp/cc1CBO7w.s:5      *ABS*:00000034 __CCP__
+C:\Users\AB47\AppData\Local\Temp/cc1CBO7w.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\AB47\AppData\Local\Temp/cc1CBO7w.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\AB47\AppData\Local\Temp/cc1CBO7w.s:18     .text:00000000 main
+C:\Users\AB47\AppData\Local\Temp/cc1CBO7w.s:119    .data:00000000 C.0.1257
+
+UNDEFINED SYMBOLS
+display
+__divmodhi4
+__do_copy_data

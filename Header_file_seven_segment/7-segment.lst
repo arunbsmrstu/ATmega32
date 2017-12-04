@@ -1,0 +1,180 @@
+   1               		.file	"7-segment.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	display
+  18               	display:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	.LVL0:
+  22 0000 AF92      		push r10
+  23 0002 BF92      		push r11
+  24 0004 CF92      		push r12
+  25 0006 DF92      		push r13
+  26 0008 EF92      		push r14
+  27 000a FF92      		push r15
+  28 000c 0F93      		push r16
+  29 000e 1F93      		push r17
+  30               	/* prologue: function */
+  31               	/* frame size = 0 */
+  32 0010 7A01      		movw r14,r20
+  33               	.LM2:
+  34 0012 9FEF      		ldi r25,lo8(-1)
+  35 0014 98BB      		out 56-32,r25
+  36               	.LM3:
+  37 0016 6BBB      		out 59-32,r22
+  38               	.LM4:
+  39 0018 90E0      		ldi r25,lo8(0)
+  40               	.LVL1:
+  41 001a 0197      		sbiw r24,1
+  42               	.LVL2:
+  43 001c 21E0      		ldi r18,lo8(1)
+  44 001e 30E0      		ldi r19,hi8(1)
+  45 0020 00C0      		rjmp 2f
+  46 0022 220F      	1:	lsl r18
+  47 0024 331F      		rol r19
+  48 0026 8A95      	2:	dec r24
+  49 0028 02F4      		brpl 1b
+  50 002a 2095      		com r18
+  51 002c 28BB      		out 56-32,r18
+  52               	.LM5:
+  53 002e 0027      		clr r16
+  54 0030 F7FC      		sbrc r15,7
+  55 0032 0095      		com r16
+  56 0034 102F      		mov r17,r16
+  57               	.LVL3:
+  58 0036 C801      		movw r24,r16
+  59 0038 B701      		movw r22,r14
+  60               	.LVL4:
+  61 003a 0E94 0000 		call __floatsisf
+  62               	.LVL5:
+  63 003e 5B01      		movw r10,r22
+  64 0040 6C01      		movw r12,r24
+  65               	.LBB12:
+  66               	.LBB13:
+  67               	.LM6:
+  68 0042 20E0      		ldi r18,lo8(0x44fa0000)
+  69 0044 30E0      		ldi r19,hi8(0x44fa0000)
+  70 0046 4AEF      		ldi r20,hlo8(0x44fa0000)
+  71 0048 54E4      		ldi r21,hhi8(0x44fa0000)
+  72 004a 0E94 0000 		call __mulsf3
+  73 004e 7B01      		movw r14,r22
+  74 0050 8C01      		movw r16,r24
+  75               	.LVL6:
+  76               	.LM7:
+  77 0052 20E0      		ldi r18,lo8(0x3f800000)
+  78 0054 30E0      		ldi r19,hi8(0x3f800000)
+  79 0056 40E8      		ldi r20,hlo8(0x3f800000)
+  80 0058 5FE3      		ldi r21,hhi8(0x3f800000)
+  81 005a 0E94 0000 		call __ltsf2
+  82 005e 8823      		tst r24
+  83 0060 04F4      		brge .L13
+  84 0062 61E0      		ldi r22,lo8(1)
+  85 0064 70E0      		ldi r23,hi8(1)
+  86               	.LVL7:
+  87 0066 00C0      		rjmp .L4
+  88               	.LVL8:
+  89               	.L13:
+  90               	.LM8:
+  91 0068 C801      		movw r24,r16
+  92 006a B701      		movw r22,r14
+  93 006c 20E0      		ldi r18,lo8(0x477fff00)
+  94 006e 3FEF      		ldi r19,hi8(0x477fff00)
+  95 0070 4FE7      		ldi r20,hlo8(0x477fff00)
+  96 0072 57E4      		ldi r21,hhi8(0x477fff00)
+  97 0074 0E94 0000 		call __gtsf2
+  98 0078 1816      		cp __zero_reg__,r24
+  99 007a 04F4      		brge .L14
+ 100               	.LM9:
+ 101 007c C601      		movw r24,r12
+ 102 007e B501      		movw r22,r10
+ 103 0080 20E0      		ldi r18,lo8(0x41200000)
+ 104 0082 30E0      		ldi r19,hi8(0x41200000)
+ 105 0084 40E2      		ldi r20,hlo8(0x41200000)
+ 106 0086 51E4      		ldi r21,hhi8(0x41200000)
+ 107 0088 0E94 0000 		call __mulsf3
+ 108 008c 0E94 0000 		call __fixunssfsi
+ 109               	.LBB14:
+ 110               	.LBB15:
+ 111               	.LM10:
+ 112 0090 88EC      		ldi r24,lo8(200)
+ 113 0092 90E0      		ldi r25,hi8(200)
+ 114 0094 00C0      		rjmp .L7
+ 115               	.LVL9:
+ 116               	.L8:
+ 117 0096 FC01      		movw r30,r24
+ 118               	/* #APP */
+ 119               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 120 0098 3197      		1: sbiw r30,1
+ 121 009a 01F4      		brne 1b
+ 122               	 ;  0 "" 2
+ 123               	/* #NOAPP */
+ 124               	.LBE15:
+ 125               	.LBE14:
+ 126               	.LM11:
+ 127 009c 6150      		subi r22,lo8(-(-1))
+ 128 009e 7040      		sbci r23,hi8(-(-1))
+ 129               	.L7:
+ 130               	.LM12:
+ 131 00a0 6115      		cp r22,__zero_reg__
+ 132 00a2 7105      		cpc r23,__zero_reg__
+ 133 00a4 01F4      		brne .L8
+ 134 00a6 00C0      		rjmp .L10
+ 135               	.LVL10:
+ 136               	.L14:
+ 137               	.LM13:
+ 138 00a8 C801      		movw r24,r16
+ 139 00aa B701      		movw r22,r14
+ 140 00ac 0E94 0000 		call __fixunssfsi
+ 141               	.LVL11:
+ 142               	.L4:
+ 143               	.LBB16:
+ 144               	.LBB17:
+ 145               	.LM14:
+ 146 00b0 CB01      		movw r24,r22
+ 147               	.LVL12:
+ 148               	/* #APP */
+ 149               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 150 00b2 0197      		1: sbiw r24,1
+ 151 00b4 01F4      		brne 1b
+ 152               	 ;  0 "" 2
+ 153               	.LVL13:
+ 154               	/* #NOAPP */
+ 155               	.L10:
+ 156               	/* epilogue start */
+ 157               	.LBE17:
+ 158               	.LBE16:
+ 159               	.LBE13:
+ 160               	.LBE12:
+ 161               	.LM15:
+ 162 00b6 1F91      		pop r17
+ 163 00b8 0F91      		pop r16
+ 164 00ba FF90      		pop r15
+ 165 00bc EF90      		pop r14
+ 166 00be DF90      		pop r13
+ 167 00c0 CF90      		pop r12
+ 168 00c2 BF90      		pop r11
+ 169 00c4 AF90      		pop r10
+ 170 00c6 0895      		ret
+ 171               	.LFE6:
+ 197               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 7-segment.c
+C:\Users\AB47\AppData\Local\Temp/ccpfpBiI.s:2      *ABS*:0000003f __SREG__
+C:\Users\AB47\AppData\Local\Temp/ccpfpBiI.s:3      *ABS*:0000003e __SP_H__
+C:\Users\AB47\AppData\Local\Temp/ccpfpBiI.s:4      *ABS*:0000003d __SP_L__
+C:\Users\AB47\AppData\Local\Temp/ccpfpBiI.s:5      *ABS*:00000034 __CCP__
+C:\Users\AB47\AppData\Local\Temp/ccpfpBiI.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\AB47\AppData\Local\Temp/ccpfpBiI.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\AB47\AppData\Local\Temp/ccpfpBiI.s:18     .text:00000000 display
+
+UNDEFINED SYMBOLS
+__floatsisf
+__mulsf3
+__ltsf2
+__gtsf2
+__fixunssfsi
