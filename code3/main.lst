@@ -1,0 +1,111 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	toptodown
+  18               	toptodown:
+  19               	.LFB7:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 81E0      		ldi r24,lo8(1)
+  25 0002 8BBB      		out 59-32,r24
+  26 0004 20E0      		ldi r18,lo8(0)
+  27 0006 30E0      		ldi r19,hi8(0)
+  28               	.LBB13:
+  29               	.LM3:
+  30 0008 61E0      		ldi r22,lo8(1)
+  31 000a 70E0      		ldi r23,hi8(1)
+  32               	.LBB14:
+  33               	.LBB15:
+  34               	.LBB16:
+  35               	.LBB17:
+  36               	.LM4:
+  37 000c 48EC      		ldi r20,lo8(200)
+  38 000e 50E0      		ldi r21,hi8(200)
+  39               	.LVL0:
+  40               	.L3:
+  41               	.LBE17:
+  42               	.LBE16:
+  43               	.LBE15:
+  44               	.LBE14:
+  45               	.LM5:
+  46 0010 CB01      		movw r24,r22
+  47               	.LVL1:
+  48 0012 022E      		mov r0,r18
+  49 0014 00C0      		rjmp 2f
+  50 0016 880F      	1:	lsl r24
+  51 0018 991F      		rol r25
+  52 001a 0A94      	2:	dec r0
+  53 001c 02F4      		brpl 1b
+  54 001e 8BBB      		out 59-32,r24
+  55 0020 88E8      		ldi r24,lo8(5000)
+  56 0022 93E1      		ldi r25,hi8(5000)
+  57               	.LVL2:
+  58               	.L2:
+  59               	.LBB21:
+  60               	.LBB20:
+  61               	.LBB19:
+  62               	.LBB18:
+  63               	.LM6:
+  64 0024 FA01      		movw r30,r20
+  65               	/* #APP */
+  66               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  67 0026 3197      		1: sbiw r30,1
+  68 0028 01F4      		brne 1b
+  69               	 ;  0 "" 2
+  70               	/* #NOAPP */
+  71               	.LBE18:
+  72               	.LBE19:
+  73               	.LM7:
+  74 002a 0197      		sbiw r24,1
+  75               	.LM8:
+  76 002c 01F4      		brne .L2
+  77 002e 2F5F      		subi r18,lo8(-(1))
+  78 0030 3F4F      		sbci r19,hi8(-(1))
+  79               	.LBE20:
+  80               	.LBE21:
+  81               	.LM9:
+  82 0032 2830      		cpi r18,8
+  83 0034 3105      		cpc r19,__zero_reg__
+  84 0036 01F4      		brne .L3
+  85               	/* epilogue start */
+  86               	.LBE13:
+  87               	.LM10:
+  88 0038 0895      		ret
+  89               	.LFE7:
+  91               	.global	main
+  93               	main:
+  94               	.LFB6:
+  95               	.LM11:
+  96               	/* prologue: function */
+  97               	/* frame size = 0 */
+  98               	.LM12:
+  99 003a 8FEF      		ldi r24,lo8(-1)
+ 100 003c 8ABB      		out 58-32,r24
+ 101               	.L8:
+ 102               	.LM13:
+ 103 003e 0E94 0000 		call toptodown
+ 104               	.LM14:
+ 105 0042 0E94 0000 		call bottomtotop
+ 106 0046 00C0      		rjmp .L8
+ 107               	.LFE6:
+ 141               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Shohan\AppData\Local\Temp/cc5FOl9f.s:2      *ABS*:0000003f __SREG__
+C:\Users\Shohan\AppData\Local\Temp/cc5FOl9f.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Shohan\AppData\Local\Temp/cc5FOl9f.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Shohan\AppData\Local\Temp/cc5FOl9f.s:5      *ABS*:00000034 __CCP__
+C:\Users\Shohan\AppData\Local\Temp/cc5FOl9f.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Shohan\AppData\Local\Temp/cc5FOl9f.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Shohan\AppData\Local\Temp/cc5FOl9f.s:18     .text:00000000 toptodown
+C:\Users\Shohan\AppData\Local\Temp/cc5FOl9f.s:93     .text:0000003a main
+
+UNDEFINED SYMBOLS
+bottomtotop

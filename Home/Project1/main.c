@@ -1,6 +1,8 @@
 #include<avr/io.h>
 #include<util/delay.h>
 
+char button_previous_status=0;
+
 int main(){
 	char button_status_previous=0;
 	DDRB|=0b11111111;
@@ -11,14 +13,15 @@ int main(){
 	
 			
 			char button_status=PINA & (1<<0);
-			PORTB|=0b10000000;
+			PORTB|=0b10000001;
 			_delay_ms(100);
 			PORTB&=0b01111111;
 			_delay_ms(100);
 			
 
 			if(button_status){
-			
+						
+						
 						PORTB|=0b01010101;
 						PORTB&=0b01010101;
 						
@@ -27,12 +30,15 @@ int main(){
 					
 			
 			}else{
-			
+					   
 					   PORTB|=0b00101011;
 				       PORTB&=0b00101011;
 						
 			
 			}
+			
+			
+			
 			
 			
 	
