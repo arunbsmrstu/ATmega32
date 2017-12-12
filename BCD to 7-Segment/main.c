@@ -1,6 +1,41 @@
 #include<avr/io.h>
 #include<util/delay.h>
-int a,b;
+
+int split(int number){
+		int a=number%10;
+		int temp=number/10;
+
+}
+
+
+void display(int number){
+
+		int first=number%10;
+		int temp=number/10;
+		int second=temp%10;
+		temp=temp/10;
+		int third=temp%10;
+		temp=temp/10;
+		int frth=temp%10;
+		
+        PORTA=(first|0b11110000); 
+        PORTA&=~(1<<4);   
+        _delay_ms(15);
+		
+		PORTA=(second|0b11110000); 
+        PORTA&=~(1<<5);   
+        _delay_ms(15);
+		
+		PORTA=(third|0b11110000); 
+        PORTA&=~(1<<6);   
+        _delay_ms(15);
+		
+		PORTA=(frth|0b11110000); 
+        PORTA&=~(1<<7);   
+        _delay_ms(15);
+
+
+}
 
 void main()
   {
@@ -9,33 +44,11 @@ void main()
   
   while(1){
   
-	
-	for(b=0;b<=45;b++)
-      {
-		int first=b/10;
-		int second=b%10;
+		for(int i=0;i<=100;i++){
+		display(i);}
 		
-        PORTB=0b11111111; 
-		PORTA=second;
-        PORTB=0b11111110;   
-        _delay_ms(30);
-
-		PORTB=0b11111111; 
-		PORTA=first;
-        PORTB=0b11111101;   
-        _delay_ms(30);
-		
-		PORTB=0b11111111; 
-		PORTA=0;
-        PORTB=0b11111011;   
-        _delay_ms(30);
-
-		PORTB=0b11111111; 
-		PORTA=2;
-        PORTB=0b11110111;   
-        _delay_ms(30);
       }
     
   }
    
- }
+ 

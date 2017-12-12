@@ -1,0 +1,1 @@
+adc_read(int chanel);

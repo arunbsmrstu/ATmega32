@@ -1,0 +1,51 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21 0000 CF93      		push r28
+  22 0002 DF93      		push r29
+  23               	/* prologue: function */
+  24               	/* frame size = 0 */
+  25               	.LM2:
+  26 0004 8FEF      		ldi r24,lo8(-1)
+  27 0006 84BB      		out 52-32,r24
+  28               	.LVL0:
+  29               	.L7:
+  30 0008 C0E0      		ldi r28,lo8(0)
+  31 000a D0E0      		ldi r29,hi8(0)
+  32               	.L6:
+  33               	.LBB2:
+  34               	.LM3:
+  35 000c 85E3      		ldi r24,lo8(53)
+  36 000e 90E0      		ldi r25,hi8(53)
+  37 0010 BE01      		movw r22,r28
+  38 0012 0E94 0000 		call Seven_segment
+  39               	.LM4:
+  40 0016 2196      		adiw r28,1
+  41 0018 C536      		cpi r28,101
+  42 001a D105      		cpc r29,__zero_reg__
+  43 001c 04F4      		brge .L7
+  44 001e 00C0      		rjmp .L6
+  45               	.LBE2:
+  46               	.LFE6:
+  72               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\AB47\AppData\Local\Temp/ccWE8aON.s:2      *ABS*:0000003f __SREG__
+C:\Users\AB47\AppData\Local\Temp/ccWE8aON.s:3      *ABS*:0000003e __SP_H__
+C:\Users\AB47\AppData\Local\Temp/ccWE8aON.s:4      *ABS*:0000003d __SP_L__
+C:\Users\AB47\AppData\Local\Temp/ccWE8aON.s:5      *ABS*:00000034 __CCP__
+C:\Users\AB47\AppData\Local\Temp/ccWE8aON.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\AB47\AppData\Local\Temp/ccWE8aON.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\AB47\AppData\Local\Temp/ccWE8aON.s:18     .text:00000000 main
+
+UNDEFINED SYMBOLS
+Seven_segment

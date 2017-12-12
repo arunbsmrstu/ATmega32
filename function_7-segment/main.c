@@ -6,7 +6,7 @@ void display(char *segment, unsigned char seg ,char *port, unsigned char data){
 	*segment = 0b11111111;
 	*port= data;
 	*segment = ~(1<<(seg-1));
-	_delay_ms(50);
+	_delay_ms(5);
 }
 
 int main(){
