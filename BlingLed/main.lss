@@ -87,8 +87,8 @@ _delay_loop_2(uint16_t __count)
   74:	8b b3       	in	r24, 0x1b	; 27
   76:	84 27       	eor	r24, r20
   78:	8b bb       	out	0x1b, r24	; 27
-  7a:	88 ee       	ldi	r24, 0xE8	; 232
-  7c:	93 e0       	ldi	r25, 0x03	; 3
+  7a:	84 ef       	ldi	r24, 0xF4	; 244
+  7c:	91 e0       	ldi	r25, 0x01	; 1
   7e:	f9 01       	movw	r30, r18
   80:	31 97       	sbiw	r30, 0x01	; 1
   82:	f1 f7       	brne	.-4      	; 0x80 <main+0x14>

@@ -1,0 +1,110 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21 0000 CF93      		push r28
+  22 0002 DF93      		push r29
+  23               	/* prologue: function */
+  24               	/* frame size = 0 */
+  25               	.LM2:
+  26 0004 80E0      		ldi r24,lo8(0)
+  27 0006 0E94 0000 		call LCDInit
+  28               	.LM3:
+  29 000a 81E0      		ldi r24,lo8(1)
+  30 000c 60E0      		ldi r22,lo8(0)
+  31 000e 0E94 0000 		call LCDByte
+  32               	.LBB13:
+  33               	.LBB14:
+  34               	.LBB15:
+  35               	.LBB16:
+  36               	.LBB17:
+  37               	.LM4:
+  38 0012 C8EA      		ldi r28,lo8(25000)
+  39 0014 D1E6      		ldi r29,hi8(25000)
+  40               	.L2:
+  41               	.LBE17:
+  42               	.LBE16:
+  43               	.LBE15:
+  44               	.LBE14:
+  45               	.LM5:
+  46 0016 80E0      		ldi r24,lo8(0)
+  47 0018 90E0      		ldi r25,hi8(0)
+  48 001a 0E94 0000 		call adc_read
+  49               	.LM6:
+  50 001e 9C01      		movw r18,r24
+  51 0020 220F      		lsl r18
+  52 0022 331F      		rol r19
+  53 0024 220F      		lsl r18
+  54 0026 331F      		rol r19
+  55 0028 280F      		add r18,r24
+  56 002a 391F      		adc r19,r25
+  57 002c 4427      		clr r20
+  58 002e 37FD      		sbrc r19,7
+  59 0030 4095      		com r20
+  60 0032 542F      		mov r21,r20
+  61 0034 CA01      		movw r24,r20
+  62 0036 B901      		movw r22,r18
+  63 0038 0E94 0000 		call __floatsisf
+  64 003c 24E1      		ldi r18,lo8(0x4123ae14)
+  65 003e 3EEA      		ldi r19,hi8(0x4123ae14)
+  66 0040 43E2      		ldi r20,hlo8(0x4123ae14)
+  67 0042 51E4      		ldi r21,hhi8(0x4123ae14)
+  68 0044 0E94 0000 		call __divsf3
+  69 0048 0E94 0000 		call __fixsfsi
+  70 004c DC01      		movw r26,r24
+  71 004e CB01      		movw r24,r22
+  72 0050 64E0      		ldi r22,lo8(4)
+  73 0052 70E0      		ldi r23,hi8(4)
+  74 0054 0E94 0000 		call LCDWriteInt
+  75               	.LBB21:
+  76               	.LBB20:
+  77               	.LBB19:
+  78               	.LBB18:
+  79               	.LM7:
+  80 0058 CE01      		movw r24,r28
+  81               	.LVL0:
+  82               	/* #APP */
+  83               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  84 005a 0197      		1: sbiw r24,1
+  85 005c 01F4      		brne 1b
+  86               	 ;  0 "" 2
+  87               	/* #NOAPP */
+  88               	.LBE18:
+  89               	.LBE19:
+  90               	.LBE20:
+  91               	.LBE21:
+  92               	.LM8:
+  93 005e 81E0      		ldi r24,lo8(1)
+  94               	.LVL1:
+  95 0060 60E0      		ldi r22,lo8(0)
+  96 0062 0E94 0000 		call LCDByte
+  97 0066 00C0      		rjmp .L2
+  98               	.LBE13:
+  99               	.LFE6:
+ 125               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\AB47\AppData\Local\Temp/ccnFvWSb.s:2      *ABS*:0000003f __SREG__
+C:\Users\AB47\AppData\Local\Temp/ccnFvWSb.s:3      *ABS*:0000003e __SP_H__
+C:\Users\AB47\AppData\Local\Temp/ccnFvWSb.s:4      *ABS*:0000003d __SP_L__
+C:\Users\AB47\AppData\Local\Temp/ccnFvWSb.s:5      *ABS*:00000034 __CCP__
+C:\Users\AB47\AppData\Local\Temp/ccnFvWSb.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\AB47\AppData\Local\Temp/ccnFvWSb.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\AB47\AppData\Local\Temp/ccnFvWSb.s:18     .text:00000000 main
+
+UNDEFINED SYMBOLS
+LCDInit
+LCDByte
+adc_read
+__floatsisf
+__divsf3
+__fixsfsi
+LCDWriteInt

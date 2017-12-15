@@ -34,8 +34,8 @@
   42               	.LVL1:
   43 000a 8427      		eor r24,r20
   44 000c 8BBB      		out 59-32,r24
-  45 000e 88EE      		ldi r24,lo8(1000)
-  46 0010 93E0      		ldi r25,hi8(1000)
+  45 000e 84EF      		ldi r24,lo8(500)
+  46 0010 91E0      		ldi r25,hi8(500)
   47               	.LVL2:
   48               	.L2:
   49               	.LBB19:
@@ -63,12 +63,12 @@
   96               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\AB47\AppData\Local\Temp/ccWCyrYr.s:2      *ABS*:0000003f __SREG__
-C:\Users\AB47\AppData\Local\Temp/ccWCyrYr.s:3      *ABS*:0000003e __SP_H__
-C:\Users\AB47\AppData\Local\Temp/ccWCyrYr.s:4      *ABS*:0000003d __SP_L__
-C:\Users\AB47\AppData\Local\Temp/ccWCyrYr.s:5      *ABS*:00000034 __CCP__
-C:\Users\AB47\AppData\Local\Temp/ccWCyrYr.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\AB47\AppData\Local\Temp/ccWCyrYr.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\AB47\AppData\Local\Temp/ccWCyrYr.s:18     .text:00000000 main
+C:\Users\AB47\AppData\Local\Temp/ccCysZ6h.s:2      *ABS*:0000003f __SREG__
+C:\Users\AB47\AppData\Local\Temp/ccCysZ6h.s:3      *ABS*:0000003e __SP_H__
+C:\Users\AB47\AppData\Local\Temp/ccCysZ6h.s:4      *ABS*:0000003d __SP_L__
+C:\Users\AB47\AppData\Local\Temp/ccCysZ6h.s:5      *ABS*:00000034 __CCP__
+C:\Users\AB47\AppData\Local\Temp/ccCysZ6h.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\AB47\AppData\Local\Temp/ccCysZ6h.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\AB47\AppData\Local\Temp/ccCysZ6h.s:18     .text:00000000 main
 
 NO UNDEFINED SYMBOLS

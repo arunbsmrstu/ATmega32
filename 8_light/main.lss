@@ -84,14 +84,14 @@ _delay_loop_2(uint16_t __count)
 	__asm__ volatile (
   72:	48 ec       	ldi	r20, 0xC8	; 200
   74:	50 e0       	ldi	r21, 0x00	; 0
-		_delay_ms(100);
+		_delay_ms(500);
 		for(int i=1;i<=8;i++){
 			PORTB=PORTB<<1;
-			_delay_ms(100);
+			_delay_ms(500);
 		}
 		PORTB=0b11111111;
   76:	6f ef       	ldi	r22, 0xFF	; 255
-		_delay_ms(100);
+		_delay_ms(500);
 		PORTB=0b10000000;
   78:	70 e8       	ldi	r23, 0x80	; 128
 
@@ -101,8 +101,8 @@ _delay_loop_2(uint16_t __count)
 	while(1){
 	    PORTB=0b00000001;
   7a:	a8 bb       	out	0x18, r26	; 24
-  7c:	88 ee       	ldi	r24, 0xE8	; 232
-  7e:	93 e0       	ldi	r25, 0x03	; 3
+  7c:	88 e8       	ldi	r24, 0x88	; 136
+  7e:	93 e1       	ldi	r25, 0x13	; 19
   80:	fa 01       	movw	r30, r20
   82:	31 97       	sbiw	r30, 0x01	; 1
   84:	f1 f7       	brne	.-4      	; 0x82 <main+0x16>
@@ -122,14 +122,14 @@ _delay_loop_2(uint16_t __count)
   88:	d9 f7       	brne	.-10     	; 0x80 <main+0x14>
   8a:	21 e0       	ldi	r18, 0x01	; 1
   8c:	30 e0       	ldi	r19, 0x00	; 0
-		_delay_ms(100);
+		_delay_ms(500);
 		for(int i=1;i<=8;i++){
 			PORTB=PORTB<<1;
   8e:	88 b3       	in	r24, 0x18	; 24
   90:	88 0f       	add	r24, r24
   92:	88 bb       	out	0x18, r24	; 24
-  94:	88 ee       	ldi	r24, 0xE8	; 232
-  96:	93 e0       	ldi	r25, 0x03	; 3
+  94:	88 e8       	ldi	r24, 0x88	; 136
+  96:	93 e1       	ldi	r25, 0x13	; 19
   98:	fa 01       	movw	r30, r20
   9a:	31 97       	sbiw	r30, 0x01	; 1
   9c:	f1 f7       	brne	.-4      	; 0x9a <main+0x2e>
@@ -149,7 +149,7 @@ _delay_loop_2(uint16_t __count)
 	
 	while(1){
 	    PORTB=0b00000001;
-		_delay_ms(100);
+		_delay_ms(500);
 		for(int i=1;i<=8;i++){
   a2:	2f 5f       	subi	r18, 0xFF	; 255
   a4:	3f 4f       	sbci	r19, 0xFF	; 255
@@ -157,12 +157,12 @@ _delay_loop_2(uint16_t __count)
   a8:	31 05       	cpc	r19, r1
   aa:	89 f7       	brne	.-30     	; 0x8e <main+0x22>
 			PORTB=PORTB<<1;
-			_delay_ms(100);
+			_delay_ms(500);
 		}
 		PORTB=0b11111111;
   ac:	68 bb       	out	0x18, r22	; 24
-  ae:	88 ee       	ldi	r24, 0xE8	; 232
-  b0:	93 e0       	ldi	r25, 0x03	; 3
+  ae:	88 e8       	ldi	r24, 0x88	; 136
+  b0:	93 e1       	ldi	r25, 0x13	; 19
   b2:	fa 01       	movw	r30, r20
   b4:	31 97       	sbiw	r30, 0x01	; 1
   b6:	f1 f7       	brne	.-4      	; 0xb4 <main+0x48>
@@ -178,11 +178,11 @@ _delay_loop_2(uint16_t __count)
 		__ticks = (uint16_t) (__ms * 10.0);
 		while(__ticks)
   ba:	d9 f7       	brne	.-10     	; 0xb2 <main+0x46>
-		_delay_ms(100);
+		_delay_ms(500);
 		PORTB=0b10000000;
   bc:	78 bb       	out	0x18, r23	; 24
-  be:	88 ee       	ldi	r24, 0xE8	; 232
-  c0:	93 e0       	ldi	r25, 0x03	; 3
+  be:	88 e8       	ldi	r24, 0x88	; 136
+  c0:	93 e1       	ldi	r25, 0x13	; 19
   c2:	fa 01       	movw	r30, r20
   c4:	31 97       	sbiw	r30, 0x01	; 1
   c6:	f1 f7       	brne	.-4      	; 0xc4 <main+0x58>
@@ -200,14 +200,14 @@ _delay_loop_2(uint16_t __count)
   ca:	d9 f7       	brne	.-10     	; 0xc2 <main+0x56>
   cc:	21 e0       	ldi	r18, 0x01	; 1
   ce:	30 e0       	ldi	r19, 0x00	; 0
-		_delay_ms(100);
+		_delay_ms(500);
 		for(int i=1;i<=8;i++){
 			PORTB=PORTB>>1;
   d0:	88 b3       	in	r24, 0x18	; 24
   d2:	86 95       	lsr	r24
   d4:	88 bb       	out	0x18, r24	; 24
-  d6:	88 ee       	ldi	r24, 0xE8	; 232
-  d8:	93 e0       	ldi	r25, 0x03	; 3
+  d6:	88 e8       	ldi	r24, 0x88	; 136
+  d8:	93 e1       	ldi	r25, 0x13	; 19
   da:	fa 01       	movw	r30, r20
   dc:	31 97       	sbiw	r30, 0x01	; 1
   de:	f1 f7       	brne	.-4      	; 0xdc <main+0x70>
@@ -225,9 +225,9 @@ _delay_loop_2(uint16_t __count)
   e2:	d9 f7       	brne	.-10     	; 0xda <main+0x6e>
 		}
 		PORTB=0b11111111;
-		_delay_ms(100);
+		_delay_ms(500);
 		PORTB=0b10000000;
-		_delay_ms(100);
+		_delay_ms(500);
 		for(int i=1;i<=8;i++){
   e4:	2f 5f       	subi	r18, 0xFF	; 255
   e6:	3f 4f       	sbci	r19, 0xFF	; 255
@@ -235,12 +235,12 @@ _delay_loop_2(uint16_t __count)
   ea:	31 05       	cpc	r19, r1
   ec:	89 f7       	brne	.-30     	; 0xd0 <main+0x64>
 			PORTB=PORTB>>1;
-			_delay_ms(100);
+			_delay_ms(500);
 		}
 		PORTB=0b11111111;
   ee:	68 bb       	out	0x18, r22	; 24
-  f0:	88 ee       	ldi	r24, 0xE8	; 232
-  f2:	93 e0       	ldi	r25, 0x03	; 3
+  f0:	88 e8       	ldi	r24, 0x88	; 136
+  f2:	93 e1       	ldi	r25, 0x13	; 19
   f4:	fa 01       	movw	r30, r20
   f6:	31 97       	sbiw	r30, 0x01	; 1
   f8:	f1 f7       	brne	.-4      	; 0xf6 <main+0x8a>

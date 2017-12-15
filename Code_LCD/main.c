@@ -5,7 +5,7 @@
 int main()
 {
      LCDInit(0);// pass 1 for cursor blinking 
-    LCDClear();
+     LCDClear();
    // LCDGotoXY(0,0);
 	//LCDWriteStringXY(0,0,"A");
 	//LCDWriteStringXY(15,0,"B");
@@ -17,7 +17,7 @@ int main()
 	//LCDWriteString("hello");
 	//LCDClear();
 	//LCDWriteString("ADC value=");
-	LCDWriteInt(1023,4);
+	 LCDWriteInt(1023,4);
 	//_delay_ms(50000);
     while(1)
     {

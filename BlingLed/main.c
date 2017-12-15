@@ -9,7 +9,7 @@ int main(){
 	while(1){
 	
 		PORTA ^=1<<PINA0;
-		_delay_ms(100);
+		_delay_ms(50);
 	}
 
 }

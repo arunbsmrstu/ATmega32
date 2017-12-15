@@ -36,8 +36,8 @@
   44               	.L10:
   45               	.LM7:
   46 000e A8BB      		out 56-32,r26
-  47 0010 88EE      		ldi r24,lo8(1000)
-  48 0012 93E0      		ldi r25,hi8(1000)
+  47 0010 88E8      		ldi r24,lo8(5000)
+  48 0012 93E1      		ldi r25,hi8(5000)
   49               	.LVL1:
   50               	.L2:
   51               	.LBB51:
@@ -71,8 +71,8 @@
   79               	.LVL4:
   80 0024 880F      		lsl r24
   81 0026 88BB      		out 56-32,r24
-  82 0028 88EE      		ldi r24,lo8(1000)
-  83 002a 93E0      		ldi r25,hi8(1000)
+  82 0028 88E8      		ldi r24,lo8(5000)
+  83 002a 93E1      		ldi r25,hi8(5000)
   84               	.LVL5:
   85               	.L3:
   86               	.LBB53:
@@ -105,8 +105,8 @@
  113               	.LBE52:
  114               	.LM16:
  115 0040 68BB      		out 56-32,r22
- 116 0042 88EE      		ldi r24,lo8(1000)
- 117 0044 93E0      		ldi r25,hi8(1000)
+ 116 0042 88E8      		ldi r24,lo8(5000)
+ 117 0044 93E1      		ldi r25,hi8(5000)
  118               	.LVL7:
  119               	.L5:
  120               	.LBB57:
@@ -132,8 +132,8 @@
  140               	.LBE57:
  141               	.LM20:
  142 0050 78BB      		out 56-32,r23
- 143 0052 88EE      		ldi r24,lo8(1000)
- 144 0054 93E0      		ldi r25,hi8(1000)
+ 143 0052 88E8      		ldi r24,lo8(5000)
+ 144 0054 93E1      		ldi r25,hi8(5000)
  145               	.LVL9:
  146               	.L6:
  147               	.LBB61:
@@ -167,8 +167,8 @@
  175               	.LVL12:
  176 0066 8695      		lsr r24
  177 0068 88BB      		out 56-32,r24
- 178 006a 88EE      		ldi r24,lo8(1000)
- 179 006c 93E0      		ldi r25,hi8(1000)
+ 178 006a 88E8      		ldi r24,lo8(5000)
+ 179 006c 93E1      		ldi r25,hi8(5000)
  180               	.LVL13:
  181               	.L7:
  182               	.LBB66:
@@ -201,8 +201,8 @@
  209               	.LBE65:
  210               	.LM29:
  211 0082 68BB      		out 56-32,r22
- 212 0084 88EE      		ldi r24,lo8(1000)
- 213 0086 93E0      		ldi r25,hi8(1000)
+ 212 0084 88E8      		ldi r24,lo8(5000)
+ 213 0086 93E1      		ldi r25,hi8(5000)
  214               	.LVL15:
  215               	.L9:
  216               	.LBB70:
@@ -231,12 +231,12 @@
  264               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\AB47\AppData\Local\Temp/cccaiC3C.s:2      *ABS*:0000003f __SREG__
-C:\Users\AB47\AppData\Local\Temp/cccaiC3C.s:3      *ABS*:0000003e __SP_H__
-C:\Users\AB47\AppData\Local\Temp/cccaiC3C.s:4      *ABS*:0000003d __SP_L__
-C:\Users\AB47\AppData\Local\Temp/cccaiC3C.s:5      *ABS*:00000034 __CCP__
-C:\Users\AB47\AppData\Local\Temp/cccaiC3C.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\AB47\AppData\Local\Temp/cccaiC3C.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\AB47\AppData\Local\Temp/cccaiC3C.s:18     .text:00000000 main
+C:\Users\AB47\AppData\Local\Temp/ccIH3gVY.s:2      *ABS*:0000003f __SREG__
+C:\Users\AB47\AppData\Local\Temp/ccIH3gVY.s:3      *ABS*:0000003e __SP_H__
+C:\Users\AB47\AppData\Local\Temp/ccIH3gVY.s:4      *ABS*:0000003d __SP_L__
+C:\Users\AB47\AppData\Local\Temp/ccIH3gVY.s:5      *ABS*:00000034 __CCP__
+C:\Users\AB47\AppData\Local\Temp/ccIH3gVY.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\AB47\AppData\Local\Temp/ccIH3gVY.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\AB47\AppData\Local\Temp/ccIH3gVY.s:18     .text:00000000 main
 
 NO UNDEFINED SYMBOLS
